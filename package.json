@@ -1,0 +1,25 @@
+{
+  "name": "nodefinalexam",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrdimaandal/NodeFinalExam.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jrdimaandal/NodeFinalExam/issues"
+  },
+  "homepage": "https://github.com/jrdimaandal/NodeFinalExam#readme",
+  "dependencies": {
+    "excel4node": "^1.7.2",
+    "express": "^4.17.1",
+    "express-validator": "^6.12.1",
+    "lowdb": "^1.0.0"
+  }
+}
