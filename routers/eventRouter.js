@@ -2,25 +2,15 @@ const express = require('express');
 const { eventsController } = require('../controllers');
 const router = express.Router();
 
-router.get('/', userController.getAllUsers);
-router.get('/event/:username', userController.getUserByUsername);
-router.get('/event/email/:emailAddress', userController.getUserByEmailAddress);
+router.get('/', eventsController.getAllEvents);
+router.get('/:eventid', eventsController.getEventById);
+router.get('/search?eventname=&datestart=&dateend=', eventsController.searchEvents);
+router.get('/export?eventid', eventsController.exportToExcel);
 
-router.delete('/event/:username',
-                userController.validateUsernameDoesExists, 
-                userController.deleteUser);
+router.delete('/:eventid', eventsController.deleteEvent);
 
-router.put('/event/:username', 
-                userController.validateUsernameDoesExists,
-                userController.validateBodyHasNoUsername,
-                userController.validateEmailAlreadyExists,
-                userController.validateEmail,
-                userController.updateUser);
+router.put('/:eventid', eventsController.updateEvent);
 
-router.post('/',
-                userController.validateEmail,
-                userController.validateUsernameAlreadyExists,
-                userController.validateEmailAlreadyExists,
-                userController.insertUser);
+router.post('/', eventsController.insertEvent);
 
 module.exports = router;

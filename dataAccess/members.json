@@ -4,7 +4,8 @@
       "memberId": "4ae03ef4-981a-6qw1-1098-fb6f467516a6",
       "name": "sample event",
       "joinedDate": "2021-01-02",
-      "status": "A"
+      "status": "A",
+      "attendanceId": "4ae03ef4-981a-6qw1-1098-fb6f467516a6"
     }
   ],
   "undefined": []

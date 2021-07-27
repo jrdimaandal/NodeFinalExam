@@ -5,7 +5,7 @@ class EventDataAccess extends DataAccess {
     super('events');
   }
 
-  async getUserByEmailAddress (emailAddress) {
+  async searchEvents () {
     const user = await this.getByAny({
       propName: 'emailAddress',
       propValue: emailAddress
@@ -14,7 +14,7 @@ class EventDataAccess extends DataAccess {
     return user;
   }
 
-  async getUserByUsername (username) {
+  async exportToExcel () {
     const user = await this.getByAny({
       propName: 'username',
       propValue: username

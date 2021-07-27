@@ -37,20 +37,20 @@ class DataAccess {
           .value();
     }
 
-    async delete (username) {
+    async delete (id) {
         const dbContext = await this.dbContext;
 
         dbContext
             .get(this.tableName)
-            .remove({ username })
+            .remove({ id })
             .write();
     }
 
-    async update (username, data) {
+    async update (id, data) {
         const dbContext = await this.dbContext;
 
         dbContext.get(this.tableName)
-            .find({ "username" : username })
+            .find({ "id" : id })
             .assign(data)
             .write();
     }

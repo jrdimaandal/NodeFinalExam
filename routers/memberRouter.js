@@ -2,25 +2,14 @@ const express = require('express');
 const { memberController } = require('../controllers');
 const router = express.Router();
 
-router.get('/', userController.getAllUsers);
-router.get('/member/:username', userController.getUserByUsername);
-router.get('/member/email/:emailAddress', userController.getUserByEmailAddress);
+router.get('/', memberController.getAllMembers);
+router.get('/:memberid', memberController.getMemberById);
+router.get('/search?name=&status=', memberController.searchMembers);
 
-router.delete('/member/:username',
-                userController.validateUsernameDoesExists, 
-                userController.deleteUser);
+router.delete('/member/:memberid', memberController.deleteMember);
 
-router.put('/member/:username', 
-                userController.validateUsernameDoesExists,
-                userController.validateBodyHasNoUsername,
-                userController.validateEmailAlreadyExists,
-                userController.validateEmail,
-                userController.updateUser);
+router.put('/:memberid', memberController.updateMember);
 
-router.post('/',
-                userController.validateEmail,
-                userController.validateUsernameAlreadyExists,
-                userController.validateEmailAlreadyExists,
-                userController.insertUser);
+router.post('/', memberController.insertMember);
 
 module.exports = router;
