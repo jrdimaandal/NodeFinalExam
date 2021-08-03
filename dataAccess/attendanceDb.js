@@ -2,7 +2,7 @@ const DataAccess = require('./db');
 
 class AttendanceDataAccess extends DataAccess {
   constructor () {
-    super('events');
+    super('attendance');
   }
 }
 

@@ -2,7 +2,7 @@ const DataAccess = require('./db');
 
 class MemberDataAccess extends DataAccess {
   constructor () {
-    super('events');
+    super('members');
   }
 
   async searchMembers (emailAddress) {
