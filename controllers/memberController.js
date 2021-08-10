@@ -1,37 +1,37 @@
 const { memberDataAccess } = require('../dataAccess');
 
 const getAllMembers = async (req, res, next) => {
-    const users = await memberDataAccess.getAll();
+    const members = await memberDataAccess.getAll();
   
-    res.send(users);
+    res.send(members);
   };
 
 const getMemberById = async (req, res, next) => {
-    const user = await memberDataAccess.getById(req.params.username);
+    const member = await memberDataAccess.getById(req.params.id);
   
-    if (!user) {
+    if (!member) {
         res.status(404).send('member does not exist');
     }
-    res.send(user);
+    res.send(member);
   };
 
 const searchMembers = async (req, res, next) => {
-    const user = await memberDataAccess.searchMembers(req.params.emailAddress);
+    const members = await memberDataAccess.searchMembers(req.params.name, req.params.status);
   
-    res.send(user);
+    res.send(members);
   };
 
 const deleteMember = async (req, res, next) => {
-    await memberDataAccess.delete(req.params.username);
+    await memberDataAccess.delete(req.params.id);
 
     res.sendStatus(200);
   };
 
 const updateMember = async (req, res, next) => {
-    const username = req.params.username;
+    const id = req.params.id;
     const payload = req.body;
 
-    await memberDataAccess.update(username, payload);
+    await memberDataAccess.update(id, payload);
 
     res.sendStatus(200);
   };
@@ -39,9 +39,9 @@ const updateMember = async (req, res, next) => {
 const insertMember = async (req, res, next) => {
     const payload = req.body;
   
-    const user = await memberDataAccess.insert(payload);
+    const member = await memberDataAccess.insert(payload);
   
-    res.status(201).send(user);
+    res.status(201).send(member);
   };
 
 module.exports = {

@@ -1,16 +1,16 @@
 const { attendanceDataAccess } = require('../dataAccess');
 
 const deleteAttendance = async (req, res, next) => {
-    await attendanceDataAccess.delete(req.params.username);
+    await attendanceDataAccess.delete(req.params.id);
 
     res.sendStatus(200);
   };
 
 const updateAttendance = async (req, res, next) => {
-    const username = req.params.username;
+    const id = req.params.id;
     const payload = req.body;
 
-    await attendanceDataAccess.update(username, payload);
+    await attendanceDataAccess.update(id, payload);
 
     res.sendStatus(200);
   };

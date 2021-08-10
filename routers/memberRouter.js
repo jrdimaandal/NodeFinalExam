@@ -3,12 +3,12 @@ const { memberController } = require('../controllers');
 const router = express.Router();
 
 router.get('/', memberController.getAllMembers);
-router.get('/:memberid', memberController.getMemberById);
-router.get('/search?name=&status=', memberController.searchMembers);
+router.get('/member/:id', memberController.getMemberById);
+router.get('/search/:name/:status', memberController.searchMembers);
 
-router.delete('/member/:memberid', memberController.deleteMember);
+router.delete('/member/:id', memberController.deleteMember);
 
-router.put('/:memberid', memberController.updateMember);
+router.put('/:id', memberController.updateMember);
 
 router.post('/', memberController.insertMember);
 

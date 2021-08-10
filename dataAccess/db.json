@@ -1,0 +1,76 @@
+{
+  "attendance": [
+    {
+      "id": "68638d68-1ffc-4e1b-aca2-75f6bc0cd10a",
+      "timeIn": "2019-10-10T09:00:001.141Z",
+      "timeOut": "2019-10-10T05:49:51.141Z",
+      "eventId": "073c5c19-597f-4fc1-9079-f00039630284"
+    },
+    {
+      "id": "f7824dc5-a4d2-4a71-8a6f-a9d3057cc4fb",
+      "timeIn": "2019-12-10T09:00:001.141Z",
+      "timeOut": "2019-12-10T05:49:51.141Z",
+      "eventId": "073c5c19-597f-4fc1-9079-f00039630284"
+    },
+    {
+      "id": "bf027672-78bf-4824-a48f-04f1edcbb861",
+      "timeIn": "2019-11-10T09:00:001.141Z",
+      "timeOut": "2019-11-10T05:49:51.141Z",
+      "eventId": "073c5c19-597f-4fc1-9079-f00039630284"
+    }
+  ],
+  "events": [
+    {
+      "id": "073c5c19-597f-4fc1-9079-f00039630284",
+      "eventName": "wedding",
+      "eventType": "type88",
+      "Start": "2021-11-02T9:00:00.511Z",
+      "End": "2021-11-02T13:00:00.511Z"
+    },
+    {
+      "id": "0711cf72-92a1-4ba4-8421-e94d473cc769",
+      "eventName": "birthday",
+      "eventType": "type3",
+      "Start": "2021-12-23T08:00:00.511Z",
+      "End": "2021-12-23T17:00:00.511Z"
+    },
+    {
+      "id": "d73d43c7-1048-46ca-b5b5-1ce1eac9fb45",
+      "eventName": "party",
+      "eventType": "type100",
+      "Start": "2021-12-02T9:00:00.511Z",
+      "End": "2021-12-02T13:00:00.511Z"
+    }
+  ],
+  "members": [
+    {
+      "id": "4ae03ef4-981a-6qw1-1098-fb6f467516a6",
+      "name": "jr dimaandal",
+      "joinedDate": "2021-01-02",
+      "status": "a",
+      "attendanceId": "68638d68-1ffc-4e1b-aca2-75f6bc0cd10a"
+    },
+    {
+      "id": "8b76820b-2a04-4ce0-bcd6-f9f7e163db0e",
+      "name": "jax teller",
+      "joinedDate": "2021-04-23",
+      "status": "a",
+      "attendanceId": "68638d68-1ffc-4e1b-aca2-75f6bc0cd10a"
+    },
+    {
+      "id": "1ef3a46d-faca-476a-aa59-d265a6741159",
+      "name": "chandler bing",
+      "joinedDate": "2019-12-23",
+      "status": "a",
+      "attendanceId": "68638d68-1ffc-4e1b-aca2-75f6bc0cd10a"
+    },
+    {
+      "id": "5165d2b9-a1b4-4562-84fa-6473140f96df",
+      "name": "jessie a. pinkman",
+      "joinedDate": "2009-12-05",
+      "status": "a",
+      "attendanceId": "68638d68-1ffc-4e1b-aca2-75f6bc0cd10a"
+    }
+  ],
+  "undefined": []
+}

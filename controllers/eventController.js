@@ -1,40 +1,58 @@
 const { eventDataAccess } = require('../dataAccess');
+const path  = require ('path');
 
 const getAllEvents = async (req, res, next) => {
-    const users = await eventDataAccess.getAll();
+    const events = await eventDataAccess.getAll();
   
-    res.send(users);
+    res.send(events);
   };
 
 const getEventById = async (req, res, next) => {
-    const user = await eventDataAccess.getById(req.params.id);
+    const event = await eventDataAccess.getById(req.params.id);
   
-    if (!user) {
+    if (!event) {
         res.status(404).send('event does not exist');
     }
-    res.send(user);
+    res.send(event);
   };
 
 const searchEvents = async (req, res, next) => {
-    const user = await eventDataAccess.searchEvents(req.params.emailAddress);
+    const { eventname, datestart, dateend } = req.params;
+    const events = await eventDataAccess.searchEvents(eventname, datestart, dateend);
   
-    res.send(user);
+    if (!eventname && !datestart && ! dateend) {
+      res.status(404).send('please provide search criteria');
+    }
+
+    res.send(events);
   };
 
 const exportToExcel = async (req, res, next) => {
-    const user = await eventDataAccess.exportToExcel(req.params.emailAddress);
+    const event = await eventDataAccess.getById(req.params.id);
   
-    res.send(user);
+    // const file = path.resolve(__dirname, '.tmp');
+    // res.download(file);
+    //'C:\\Users\\JRD\\Downloads\\' + 
+    const startDate = event.Start.split(':')[0];
+
+    res.download('./', event.eventName + '_' + startDate +'.xlsx', function(err) {
+        console.log('test456'); //successfully prints to console
+        if(err) { 
+            console.log(err) //I'm assuming this is source of logged error
+        } else {
+            console.log("no error"); //doesn't print
+        }
+    });
   };
 
 const deleteEvent = async (req, res, next) => {
-    await eventDataAccess.delete(req.params.username);
+    await eventDataAccess.delete(req.params.id);
 
     res.sendStatus(200);
   };
 
 const updateEvent = async (req, res, next) => {
-    const username = req.params.username;
+    const username = req.params.id;
     const payload = req.body;
 
     await eventDataAccess.update(username, payload);

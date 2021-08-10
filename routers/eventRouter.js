@@ -1,16 +1,16 @@
 const express = require('express');
-const { eventsController } = require('../controllers');
+const { eventController } = require('../controllers');
 const router = express.Router();
 
-router.get('/', eventsController.getAllEvents);
-router.get('/:eventid', eventsController.getEventById);
-router.get('/search?eventname=&datestart=&dateend=', eventsController.searchEvents);
-router.get('/export?eventid', eventsController.exportToExcel);
+router.get('/', eventController.getAllEvents);
+router.get('/event/:id', eventController.getEventById);
+router.get('/search/:eventname/:datestart/:dateend', eventController.searchEvents);
+router.get('/export/:id', eventController.exportToExcel);
 
-router.delete('/:eventid', eventsController.deleteEvent);
+router.delete('/:id', eventController.deleteEvent);
 
-router.put('/:eventid', eventsController.updateEvent);
+router.put('/:id', eventController.updateEvent);
 
-router.post('/', eventsController.insertEvent);
+router.post('/', eventController.insertEvent);
 
 module.exports = router;

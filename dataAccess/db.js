@@ -27,14 +27,14 @@ class DataAccess {
           .find({ [propName]: propValue})
           .value();
     }
-
+  
     async getById (id) {
-        const dbContext = await this.dbContext;
-    
-        return dbContext
-          .get(this.tableName)
-          .find({ id })
-          .value();
+      const dbContext = await this.dbContext;
+      
+      return dbContext
+        .get(this.tableName)
+        .find({ id })
+        .value();
     }
 
     async delete (id) {

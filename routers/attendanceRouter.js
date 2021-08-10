@@ -2,9 +2,9 @@ const express = require('express');
 const { attendanceController } = require('../controllers');
 const router = express.Router();
 
-router.delete('/:attendanceid', attendanceController.deleteAttendance);
+router.delete('/:id', attendanceController.deleteAttendance);
 
-router.put('/:attendanceid', attendanceController.updateAttendance);
+router.put('/:id', attendanceController.updateAttendance);
 
 router.post('/', attendanceController.insertAttendance);
 
