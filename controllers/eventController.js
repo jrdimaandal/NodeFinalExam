@@ -1,5 +1,6 @@
 const { eventDataAccess } = require('../dataAccess');
 const path  = require ('path');
+var xl = require('excel4node');
 
 const getAllEvents = async (req, res, next) => {
     const events = await eventDataAccess.getAll();
@@ -29,20 +30,25 @@ const searchEvents = async (req, res, next) => {
 
 const exportToExcel = async (req, res, next) => {
     const event = await eventDataAccess.getById(req.params.id);
-  
+
+    const wb = new xl.Workbook();
+    const startDate = event.Start.split(':')[0];
+
+    wb.write(event.eventName + '_' + startDate +'.xlsx', res);
+
     // const file = path.resolve(__dirname, '.tmp');
     // res.download(file);
     //'C:\\Users\\JRD\\Downloads\\' + 
-    const startDate = event.Start.split(':')[0];
+    // const startDate = event.Start.split(':')[0];
 
-    res.download('./', event.eventName + '_' + startDate +'.xlsx', function(err) {
-        console.log('test456'); //successfully prints to console
-        if(err) { 
-            console.log(err) //I'm assuming this is source of logged error
-        } else {
-            console.log("no error"); //doesn't print
-        }
-    });
+    // res.download('./', event.eventName + '_' + startDate +'.xlsx', function(err) {
+    //     console.log('test456'); //successfully prints to console
+    //     if(err) { 
+    //         console.log(err) //I'm assuming this is source of logged error
+    //     } else {
+    //         console.log("no error"); //doesn't print
+    //     }
+    // });
   };
 
 const deleteEvent = async (req, res, next) => {
